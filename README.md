@@ -19,3 +19,4 @@ There are four challenges in this project: Cats Challenge, Search Challenge, Dog
  - The ToDo Challenge is an opportunity to apply everything you have seen up until this point throughout your experience at Eleven Fifty Academy
 
 Good luck!# React-Legacy-Challenges
+# React-Legacy-Challenges
