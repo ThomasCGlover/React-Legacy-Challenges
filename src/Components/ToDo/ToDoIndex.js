@@ -1,13 +1,16 @@
 import React, {Component} from 'react';
+import ToDo from './ToDo';
 
 export default class ToDoList extends Component{
     constructor(props){
         super(props);
         this.state = {
             taskToAdd: '',
-            taskList: []
+            taskList: ['class', 'gym', 'work'],
+          
         }
-
+        // this.taskInput = this.taskInput.bind(this);
+        // this.addTask = this.addTask.bind(this);
     }
 
     taskInput = (event) => {
@@ -17,30 +20,21 @@ export default class ToDoList extends Component{
     addTask = (event) => {
         event.preventDefault()
         this.setState({
-            taskToAdd: '',
-            taskList: [...this.state.taskList, this.state.taskToAdd]
+            taskList: [...this.state.taskList, this.state.taskToAdd],
+            // taskToAdd: '',
         })
         console.log(this.state.taskList)
     }
 
-    List = () => {
-        return(
-        <ul>
-            {this.state.taskList.map(task => <li>{task}</li>)}
-        </ul>
-        )
-    }
 
     render(){
         return(
             <div>
                 <form className="form">
                     <input type="text" value={this.state.taskToAdd} onChange={this.taskInput} />
-                    <button onSubmit={this.addTask} type="submit" value="submit">Add a Task!</button>
+                    <button onClick={this.addTask} type="submit" value="submit">Add a Task!</button>
                 </form>
-                 <div>
-                    {this.List}
-                </div>
+                    <ToDo tasks={this.state.taskList} />  
             </div>
         )
     }
